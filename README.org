@@ -1,0 +1,72 @@
+#+TITLE: Socat compiled for Windows 10 x64
+
+* Overview
+Socat binary compiled with Cygwin gcc on Windows 10.
+I've included zip of the socat.exe and required dlls for convenience but...
+* Concise Compilation Instruction
+For those who do not trust random binary blobs on the internet (like me).
+- Install Cygwin
+- Install following packages on Cygwin (fortran, objc, and objc++ may not need needed):
+  - gcc-core
+  - gcc-fortran
+  - gcc-g++
+  - gcc-objc
+  - gcc-objc++
+  - libkrb5-devel
+  - libkrb5_3
+  - libreadline-devel
+  - libssl-devel
+  - libwrap-devel
+  - make
+  - tcp_wrappers
+- Download socat source from http://www.dest-unreach.org/socat/
+
+#+begin_src shell
+tar -xvzf socat-<version>.tar.gz
+cd socat-<version>
+./configure
+make
+make install
+#+end_src
+* Compiled Features
+#+begin_src text
+$ socat -V
+socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+socat version 1.7.4.1 on Feb 11 2021 06:09:59
+   running on CYGWIN_NT-10.0-19042 version 2020-08-22 17:48 UTC, release 3.1.7-340.x86_64, machine x86_64
+features:
+  #define WITH_STDIO 1
+  #define WITH_FDNUM 1
+  #define WITH_FILE 1
+  #define WITH_CREAT 1
+  #define WITH_GOPEN 1
+  #define WITH_TERMIOS 1
+  #define WITH_PIPE 1
+  #define WITH_UNIX 1
+  #undef WITH_ABSTRACT_UNIXSOCKET
+  #define WITH_IP4 1
+  #define WITH_IP6 1
+  #define WITH_RAWIP 1
+  #define WITH_GENERICSOCKET 1
+  #undef WITH_INTERFACE
+  #define WITH_TCP 1
+  #define WITH_UDP 1
+  #undef WITH_SCTP
+  #define WITH_LISTEN 1
+  #define WITH_SOCKS4 1
+  #define WITH_SOCKS4A 1
+  #undef WITH_VSOCK
+  #define WITH_PROXY 1
+  #define WITH_SYSTEM 1
+  #define WITH_EXEC 1
+  #define WITH_READLINE 1
+  #undef WITH_TUN
+  #define WITH_PTY 1
+  #define WITH_OPENSSL 1
+  #undef WITH_FIPS
+  #define WITH_LIBWRAP 1
+  #define WITH_SYCLS 1
+  #define WITH_FILAN 1
+  #define WITH_RETRY 1
+  #define WITH_MSGLEVEL 0 /*debug*/
+#+end_src
